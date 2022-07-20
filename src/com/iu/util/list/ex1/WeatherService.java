@@ -1,0 +1,88 @@
+package com.iu.util.list.ex1;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+import com.iu.util.list.ex1.CityDTO;
+
+public class WeatherService {
+	
+//	init메서드
+//	//sb에 있는 Data들을 파싱해서 CityDTO에 담아서 리턴
+//
+//	add메서드
+//	city정보를 입력받아서 추가 도시명 기온 습도 현재상태
+//
+//	remove메서드
+//	도시명을 입력받아서 리스트에서 삭제
+//
+//	find메서드
+//	도시명을 입력받아서 리스트에서 검색
+	
+	private StringBuffer sb;
+	
+	public StringBuffer getSb() {
+		return sb;
+	}
+
+	public void setSb(StringBuffer sb) {
+		this.sb = sb;
+	}
+	Scanner sc;
+	public WeatherService() {
+		sc = new Scanner(System.in);
+	
+		sb = new StringBuffer();
+		sb.append("Seoul,30.2,70,맑음,");
+		sb.append("Daegu-38.9-90-흐림-");
+		sb.append("Jeju,12.1,10,눈");
+		sb.append("Busan-0.5,85,태풍");
+	}
+	
+	public void init(ArrayList<CityDTO> ar) {
+		
+	}
+	
+	public void add(ArrayList<CityDTO> ar) {
+		CityDTO cityDTO = new CityDTO();
+		cityDTO.setName(sc.next());
+		System.out.println("도시명 입력");
+		cityDTO.setGion(sc.nextDouble());
+		System.out.println("기온 입력");
+		cityDTO.setHum(sc.nextInt());
+		System.out.println("습도 입력");
+		cityDTO.setStatus(sc.next());
+		System.out.println("날씨 입력");
+		ar.add(cityDTO);
+	}
+	
+	
+	public void init(ArrayList<CityDTO> ar) {
+		String data =sb.toString();
+		data =data.replace("-",",");
+		StringTokenizer st = new StringTokenizer(data,"-");
+		
+		while(st.hasMoreTokens()) {
+			CityDTO cityDTO = new CityDTO();
+			cityDTO.setName(st.nextToken());
+			cityDTO.setGion(Double.parseDouble(st.nextToken()));
+			cityDTO.setHum(Integer.parseInt(st.nextToken()));
+			cityDTO.setStatus(st.nextToken());
+			ar.add(cityDTO);
+		}
+
+		
+	}
+			
+		public void remove(ArrayList<CityDTO> ar) {
+			System.out.println("리스트 삭제");
+			String name = sc.next();
+			for(int i=0;i<ar.size();i++) {
+				if(name.equals(ar.getClass().i));
+		}
+		
+			
+	
+	}
+}
