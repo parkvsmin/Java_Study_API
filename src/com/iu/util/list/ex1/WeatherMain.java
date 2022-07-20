@@ -14,23 +14,21 @@ public class WeatherMain {
 		
 		WeatherView wv = new WeatherView();
 		WeatherService ws = new WeatherService();
-		WeatherController st = new WeatherController();
-		
-		CityDTO cityDTO = new CityDTO();
-		cityDTO.setName("NY");
-		cityDTO.setGion(31.2);
-		cityDTO.setHum(20);
-		cityDTO.setStatus("비");
-		
-		CityDTO cityDTO2 = new CityDTO();
-		cityDTO2.setName("LA");
-		cityDTO2.setGion(18);
-		cityDTO2.setHum(90);
-		cityDTO2.setStatus("눈");
-		
-		ArrayList<CityDTO> ar = new ArrayList<>();
-		ar.add(cityDTO);
-		ar.add(cityDTO2);
+//		CityDTO cityDTO = new CityDTO();
+//		cityDTO.setName("NY");
+//		cityDTO.setGion(31.2);
+//		cityDTO.setHum(20);
+//		cityDTO.setStatus("비");
+//		
+//		CityDTO cityDTO2 = new CityDTO();
+//		cityDTO2.setName("LA");
+//		cityDTO2.setGion(17);
+//		cityDTO2.setHum(90);
+//		cityDTO2.setStatus("눈");
+//		
+//		ArrayList<CityDTO> ar = new ArrayList<>();
+//		ar.add(cityDTO);
+//		ar.add(cityDTO2);
 		
 		ArrayList<CityDTO> ar = new ArrayList<>();
 		ws.init(ar);
@@ -40,6 +38,8 @@ public class WeatherMain {
 		wv.view(ar);
 		
 		
+		
+
 	}
 
 }
