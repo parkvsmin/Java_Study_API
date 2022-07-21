@@ -23,7 +23,7 @@ public class WeatherService {
 	
 	public WeatherService() {
 		sc = new Scanner(System.in);
-		sb = new StringBuffer();
+		sb = new StringBuffer(); //sb.eq x
 		sb.append("Seoul,30.2,70,맑음,");
 		sb.append("Daegu-38.9-90-흐림-");
 		sb.append("Jeju,12.1,10,눈,");
@@ -32,8 +32,10 @@ public class WeatherService {
 	
 	public void init(ArrayList<CityDTO> ar) {
 		String data = sb.toString();
-		data=data.replace("-", ",");
+		System.out.println(data);
 		
+		data=data.replace("-", ",");
+		System.out.println(data);
 		StringTokenizer st = new StringTokenizer(data, ",");
 		
 		while(st.hasMoreTokens()) {
@@ -49,7 +51,7 @@ public class WeatherService {
 		
 	}
 	
-	public void add(ArrayList<CityDTO> ar) {
+	public boolean add(ArrayList<CityDTO> ar) {
 		CityDTO cityDTO = new CityDTO();
 		System.out.println("도시명 입력");
 		cityDTO.setName(sc.next());
@@ -59,21 +61,25 @@ public class WeatherService {
 		cityDTO.setHum(sc.nextInt());
 		System.out.println("날씨 입력");
 		cityDTO.setStatus(sc.next());
-		ar.add(cityDTO);
+		return ar.add(cityDTO);
 		
-	}
+	} //add 메서드 끝
 	
-	public void remove(ArrayList<CityDTO> ar) {
+	public boolean remove(ArrayList<CityDTO> ar) {
 		System.out.println("삭제 하려는 도시명 입력");
-		String name = sc.next();
+		String name = sc.next().toUpperCase();
+		boolean r = false;
+		
 		
 		//전통 for
-//		for(int i=0;i<ar.size();i++) {
-//			if(name.equals(ar.get(i).getName())) {
-//				ar.remove(i);
-//				break;
-//			}
-//		}
+		for(int i=0;i<ar.size();i++) {
+			if(name.equals(ar.get(i).getName().toUpperCase())) {
+				ar.remove(i);
+				r= !r;
+				break;
+			}
+		}
+		return r;
 		
 		//향상된 for
 //		for(CityDTO cityDTO: ar) {
@@ -83,6 +89,21 @@ public class WeatherService {
 //			}
 //		}
 //		
+	}
+	
+	public CityDTO find(ArrayList<CityDTO> ar) {
+		CityDTO cityDTO=null;
+		System.out.println("도시명 입력");
+		String name = sc.next().toLowerCase();
+		
+		//향상된 for
+		for(CityDTO cityDTO2 : ar) {
+			if(name.equals(cityDTO2.getName())) {
+				cityDTO = cityDTO2;
+				break;
+			}
+		}
+		return cityDTO;
 	}
 
 }

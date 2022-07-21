@@ -5,6 +5,12 @@ import java.util.ArrayList;
 public class WeatherMain {
 
 	public static void main(String[] args) {
+		WeatherController wc = new WeatherController();
+		wc.start();
+		
+		ArrayList<String> ar1 = new ArrayList<>();
+		ArrayList<Integer> ar2;
+		
 		//1. 클래스의 역할과 메서드의 역할, 변수의 역할
 		// WeatherMain : 프로그램실행, Test
 		// WeatherService : Data 가공
