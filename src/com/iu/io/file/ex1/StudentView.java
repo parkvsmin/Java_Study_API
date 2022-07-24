@@ -27,4 +27,14 @@ public class StudentView {
 			this.view(studentDTO);
 		}
 	}
+
+	public boolean remove(ArrayList<StudentDTO> ar) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void init(ArrayList<StudentDTO> ar) {
+		// TODO Auto-generated method stub
+		
+	}
 }

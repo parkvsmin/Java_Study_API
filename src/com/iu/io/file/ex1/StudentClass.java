@@ -26,6 +26,14 @@ public class StudentClass implements Service {
 	}public StudentClass() {
 		// TODO Auto-generated constructor stub
 	}
+	public boolean add(ArrayList<StudentDTO> ar) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public StudentDTO find(ArrayList<StudentDTO> ar) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 }

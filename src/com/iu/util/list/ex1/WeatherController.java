@@ -11,14 +11,14 @@ public class WeatherController {
 	//결합도가 강하다(높다) : 자체에서 객체 생성
 	//결합도가 느슨하다(낮다) : 매개변수를 통해서 만들어진 객체를 주입
 	//                  : 생성자의 매개변수, 
-//Controller->WeatherService 참조 
-//	start메서드
-//	1.날씨정보초기화 - init메서드호출
-//	2.전국날씨출력
-//	3.지역날씨검색
-//	4.지역정보추가
-//	5.지역정보삭제
-//	6.종          료
+	//Controller->WeatherService 참조 
+	//	start메서드
+	//	1.날씨정보초기화 - init메서드호출
+	//	2.전국날씨출력
+	//	3.지역날씨검색
+	//	4.지역정보추가
+	//	5.지역정보삭제
+	//	6.종          료
 	public WeatherController() {
 		this.ws = new WeatherService();
 		this.wv = new WeatherView();

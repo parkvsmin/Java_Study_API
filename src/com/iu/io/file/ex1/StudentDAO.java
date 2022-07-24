@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.StringTokenizer;
 
 public class StudentDAO {
@@ -19,6 +20,30 @@ public class StudentDAO {
 		//작성 형식은 기존 내용의 형식과 동일하게
 		//1을 리턴 : 정상적인 성공
 		//0을 리턴 : 예외가 발생 했을 경우
+		
+		ArrayList<StudentDTO> studentData = ar;
+		
+		ar = new ArrayList<StudentDTO>();
+
+		File file = new File("C:\\study\\studentData.txt");
+		String [] names = file.list();
+		for(String s:names) {
+			System.out.println(s);
+		}
+		File [] files = file.listFiles();
+		for(File f: files) {
+			if(f.isFile()) {
+				if(f.length()==0) {
+					f.delete();
+				}
+			}
+		}
+		
+		Scanner sc = new Scanner(System.in);
+		
+		
+		
+		
 		int result = 1;
 		return result;
 		
@@ -35,24 +60,24 @@ public class StudentDAO {
 		
 		boolean check = true;
 		br.readLine();
-		String str = br.readLine();
-		System.out.println(str);
 		while(check) {
+			String str=br.readLine();
 			if(str==null) {
 				break;
 			}
-		}
 
-		StringTokenizer st = new StringTokenizer(str,",");
-		while(st.hasMoreTokens()) {
-				StudentDTO studentDTO = new StudentDTO();
-				studentDTO.setName(st.nextToken());
-				studentDTO.setNum(Integer.parseInt(st.nextToken().trim()));
-				studentDTO.setKor(Integer.parseInt(st.nextToken().trim()));
-				studentDTO.setEng(Integer.parseInt(st.nextToken().trim()));
-				studentDTO.setMath(Integer.parseInt(st.nextToken().trim()));
-				ar.add(studentDTO);
-			}
+			StringTokenizer st = new StringTokenizer(str,",");
+			while(st.hasMoreTokens()) {
+			StudentDTO studentDTO = new StudentDTO();
+			studentDTO.setName(st.nextToken());
+			studentDTO.setNum(Integer.parseInt(st.nextToken().trim()));
+			studentDTO.setKor(Integer.parseInt(st.nextToken().trim()));
+			studentDTO.setEng(Integer.parseInt(st.nextToken().trim()));
+			studentDTO.setMath(Integer.parseInt(st.nextToken().trim()));					studentDTO.setTotal(studentDTO.getEng()+studentDTO.getKor()+studentDTO.getMath());
+			studentDTO.setAvg(studentDTO.getTotal()/3.0);
+			ar.add(studentDTO);
+				}
+		}
 		
 		return ar;
 		
