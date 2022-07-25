@@ -58,16 +58,18 @@ public class StudentService implements Service {
 	@Override
 	public void setStudentAdd(ArrayList<StudentDTO> ar) throws Exception {
 		StudentDTO studentDTO = new StudentDTO();
-		System.out.println("");
-		studentDTO.setName(null);
-		System.out.println("");
-		studentDTO.setNum(null);
-		System.out.println("");
-		studentDTO.setKor(null);
-		System.out.println("");
-		studentDTO.setEng(null);
-		System.out.println("");
-		studentDTO.setMath(null);
+		System.out.println("추가할 학생 이름 입력");
+		studentDTO.setName(sc.next());
+		System.out.println("번호 입력");
+		studentDTO.setNum(sc.nextInt());
+		System.out.println("국어 입력");
+		studentDTO.setKor(sc.nextInt());
+		System.out.println("영어 입력");
+		studentDTO.setEng(sc.nextInt());
+		System.out.println("수학 입력");
+		studentDTO.setMath(sc.nextInt());
+		studentDTO.setTotal(studentDTO.getKor()+studentDTO.getEng()+studentDTO.getMath());
+		studentDTO.setAvg(studentDTO.getTotal()/3.0);
 
 	}
 

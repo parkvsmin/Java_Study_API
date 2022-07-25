@@ -5,16 +5,12 @@ import java.util.ArrayList;
 public class ExMain {
 
 	public static void main(String[] args) {
-
-		StudentController sc = new StudentController();
-		StudentView sv = new StudentView();
-		ArrayList<StudentDTO> ar = null;
-		
+		// TODO Auto-generated method stub
 		StudentDAO dao = new StudentDAO();
 		StudentService service = new StudentService();
-		//		ArrayList<StudentDTO> ar=null;
+		ArrayList<StudentDTO> ar=null;
 		try {
-			ar = dao.getList();
+			ar = service.getList();
 			for(StudentDTO studentDTO:ar) {
 				System.out.println(studentDTO.getName());
 				System.out.println(studentDTO.getNum());
@@ -23,12 +19,11 @@ public class ExMain {
 				System.out.println(studentDTO.getMath());
 				System.out.println(studentDTO.getTotal());
 				System.out.println(studentDTO.getAvg());
-
 				System.out.println("==================");
-
+				
 			}
 		} catch (Exception e) {
-
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -36,22 +31,18 @@ public class ExMain {
 		studentDTO.setName("Add");
 		studentDTO.setNum(6);
 		studentDTO.setKor(50);
+		studentDTO.setEng(50);
+		studentDTO.setMath(50);
 		ar.add(studentDTO);
 		
 		try {
-			ArrayList<StudentDTO> result = ar;
+		int result= service.setList(ar);
+		System.out.println("Result : "+result);
 		} catch (Exception e) {
-			// TODO: handle exception
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		System.out.println(ar);
+		
 
 	}
-
 }
-
-
-//iu.1,56,54,85
-//choa.2,86,95,75
-//suji.3,75,85,74
-//hani.4,85,97,86
-
