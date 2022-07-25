@@ -6,7 +6,7 @@ import java.util.Scanner;
 import com.iu.util.list.ex1.CityDTO;
 
 public class StudentController {
-	private StudentClass scl;
+	private StudentService scl;
 	private StudentView sv;
 	private Scanner sc;
 	
